@@ -4,6 +4,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.zenika.zacademy.GamesOfThronesRatings.repository.BookClient;
+import org.zenika.zacademy.GamesOfThronesRatings.service.model.BookResponse;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/books")
@@ -15,7 +18,7 @@ public class BookController {
     }
 
     @GetMapping
-    public String getAll (){
+    public List<BookResponse> getAll (){
         return bookClient.getAll();
     }
 }

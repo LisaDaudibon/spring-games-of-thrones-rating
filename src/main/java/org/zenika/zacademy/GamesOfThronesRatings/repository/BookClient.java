@@ -1,8 +1,14 @@
 package org.zenika.zacademy.GamesOfThronesRatings.repository;
 
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.zenika.zacademy.GamesOfThronesRatings.configuration.GotConfig;
+import org.zenika.zacademy.GamesOfThronesRatings.service.model.BookResponse;
+
+import java.util.List;
 
 @Component
 public class BookClient {
@@ -14,7 +20,13 @@ public class BookClient {
         restTemplate = new RestTemplate();
     }
 
-    public String getAll () {
-        return restTemplate.getForObject(gotConfig.getUrl() + "/books", String.class);
+    public List<BookResponse> getAll () {
+        ResponseEntity<List<BookResponse>> responseEntity = restTemplate.exchange(
+                gotConfig.getUrl() + "/books",
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<List<BookResponse>>() {});
+
+        return responseEntity.getBody();
     }
 }
