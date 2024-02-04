@@ -5,7 +5,7 @@ import org.zenika.zacademy.GamesOfThronesRatings.service.model.User;
 
 @Component
 public class UserMapper {
-    public User getUserDtoToUser ( UserDto from) {
+    public User getUserDtoToUser ( UserDto from ) {
         return new User(from.getId(), from.getName());
     }
 

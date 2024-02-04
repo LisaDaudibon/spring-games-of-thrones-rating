@@ -26,4 +26,22 @@ public class UserService {
     public List<User> getAll () {
         return this.users;
     }
+
+    public User getOneById(int searchedId ) {
+        for (User user : users) {
+            if (user.getId() == searchedId) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public User add ( User newUser ) {
+        int nextId = this.getNextId();
+
+        newUser.setId(nextId);
+
+        users.add(newUser);
+        return newUser;
+    }
 }
