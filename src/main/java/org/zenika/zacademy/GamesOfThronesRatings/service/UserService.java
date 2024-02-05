@@ -48,4 +48,12 @@ public class UserService {
     public void deleteById(int searchedId) {
         users.removeIf(user -> user.getId() == searchedId);
     }
+
+    public User updateById(int searchedId, User updatedUser ) {
+        User userFound = getOneById(searchedId);
+
+        userFound.setName(updatedUser.getName());
+
+        return userFound;
+    }
 }

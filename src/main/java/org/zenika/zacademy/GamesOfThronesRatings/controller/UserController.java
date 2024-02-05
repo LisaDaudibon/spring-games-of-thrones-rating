@@ -48,4 +48,11 @@ public class UserController {
         logger.info("Deleted one user with id : " + id);
         this.userService.deleteById(id);
     }
+
+    @PutMapping("/{id}")
+    public UserDto updateById ( @PathVariable("id") int id, @RequestBody UserDto updatedUserDto ) {
+        logger.info("Updated one user with id" + id );
+        User userUpdated = this.userService.updateById(id, userMapper.getUserDtoToUser(updatedUserDto));
+        return this.userMapper.getUserToUserDto(userUpdated);
+    }
 }
