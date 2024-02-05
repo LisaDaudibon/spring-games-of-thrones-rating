@@ -9,6 +9,7 @@ Test the API [Here](https://anapioficeandfire.com/)
 - Spring Starter Hibernate Validator
 - Swagger UI
 - Lombok
+- DataFaker
 
 ## Specs
 ### 1. Créer le premier Endpoint
@@ -20,8 +21,20 @@ Créer un model `Book` pour permettre de récupérer les données qui nous inté
 ### 3. Créer un controller et un modèle User
 Créer un controller `UserController` qui va permettre de gérer des utilisateurs avec un attribut `id` et `name` qui seront prédéfini dans un modèle. Implémenter un CRUD complet sur ce controller
 
-### 4. Permettre de rajouter un commentaire sur chaque livre
-Implémenter un CRUD qui permette de rajouter un commentaire et un avis sur 10 sur chaque livre. Les avis seront liés aux utilisateurs et aux livres qu'ils concernent.
+### 4. Mock des données utilisateurs
+Créer un dossier Mock et utiliser datafaker pour mocker des données. 
+
+### 5. Créer des tests pour le controller User
+Créer des tests pour valider les méthodes du `UserController`.
+
+### 6. Implémenter des validations
+Vérifier que le nom est bien rempli pour la méthode Add et Update.
+
+### 7. Gérer les exceptions et les codes HTTP
+Rajouter une gestion des codes HTTP (CREATED for Add et update par exemple) et une gestion des exceptions/cas d'erreur
+
+### 8. Permettre de rajouter un commentaire sur chaque livre
+Implémenter un CRUD qui permette de rajouter un commentaire et un avis sur 10 sur chaque livre. Les avis seront liés aux utilisateurs et aux livres qu'ils concernent.  
 
   
 ### Optionnel
