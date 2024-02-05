@@ -44,4 +44,8 @@ public class UserService {
         users.add(newUser);
         return newUser;
     }
+
+    public void deleteById(int searchedId) {
+        users.removeIf(user -> user.getId() == searchedId);
+    }
 }

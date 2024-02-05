@@ -42,4 +42,10 @@ public class UserController {
         User newUser = this.userService.add(userMapper.getUserDtoToUser(newUserDto));
         return userMapper.getUserToUserDto(newUser);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteById (@PathVariable("id") int id ) {
+        logger.info("Deleted one user with id : " + id);
+        this.userService.deleteById(id);
+    }
 }
